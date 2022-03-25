@@ -3,6 +3,11 @@ let cartDOM = document.querySelector(".cart-btn");
 const cart = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
 let closeCartDOM = document.querySelector(".close-cart");
+let removeItemDOM = document.querySelectorAll(".remove-item");
+let cartItemDOM = document.querySelectorAll(".cart-item");
+let itemAmountDOM = document.querySelectorAll(".item-amount");
+let chevronUpDOM = document.querySelectorAll(".fa-chevron-up");
+let chevronDownDOM = document.querySelectorAll(".fa-chevron-down");
 
 const getProducts = async function () {
   let response = await fetch("products.json");
@@ -46,3 +51,28 @@ function closeCart() {
   closeCartDOM = cart.style.transform = "translateX(100%)";
   closeCartDOM = cartOverlay.style.visibility = "hidden";
 }
+
+//Implement Remove items button
+// removeItemDOM.addEventListener("click", removeItem);
+// function removeItem() {
+//   for (let i = 0; i < removeItemDOM.length; i++)
+//     removeItemDOM[i].style.visibility = "hidden";
+//   console.log("clicked");
+// }
+
+//chevron-up button
+for (let i = 0; i < chevronUpDOM.length; i++) {
+  chevronUpDOM[i].addEventListener("click", chevronUp);
+  function chevronUp() {
+    itemAmountDOM[i].innerHTML = Number(itemAmountDOM[i].innerHTML) + 1;
+  }
+}
+
+//chevron-Down  button
+// for (let i = 0; i < chevronDownDOM.length; i++) {
+//   chevronDownDOM[i].addEventListener("click", chevronDown);
+//   function chevronDown() {
+//     if (itemAmountDOM[i].innerHTML === 0) return false;
+//     itemAmountDOM[i].innerHTML = Number(itemAmountDOM[i].innerHTML) - 1;
+//   }
+// }
