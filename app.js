@@ -52,13 +52,14 @@ function closeCart() {
   closeCartDOM = cartOverlay.style.visibility = "hidden";
 }
 
-//Implement Remove items button
-// removeItemDOM.addEventListener("click", removeItem);
-// function removeItem() {
-//   for (let i = 0; i < removeItemDOM.length; i++)
-//     removeItemDOM[i].style.visibility = "hidden";
-//   console.log("clicked");
-// }
+// Implement Remove items button
+for (let i = 0; i < removeItemDOM.length; i++) {
+  removeItemDOM[i].addEventListener("click", removeItem);
+  function removeItem() {
+    cartItemDOM[i].style.visibility = "hidden";
+    console.log("clicked");
+  }
+}
 
 //chevron-up button
 for (let i = 0; i < chevronUpDOM.length; i++) {
