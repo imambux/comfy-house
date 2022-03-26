@@ -69,10 +69,10 @@ for (let i = 0; i < chevronUpDOM.length; i++) {
 }
 
 //chevron-Down  button
-// for (let i = 0; i < chevronDownDOM.length; i++) {
-//   chevronDownDOM[i].addEventListener("click", chevronDown);
-//   function chevronDown() {
-//     if (itemAmountDOM[i].innerHTML === 0) return false;
-//     itemAmountDOM[i].innerHTML = Number(itemAmountDOM[i].innerHTML) - 1;
-//   }
-// }
+for (let i = 0; i < chevronDownDOM.length; i++) {
+  chevronDownDOM[i].addEventListener("click", chevronDown);
+  function chevronDown() {
+    if (itemAmountDOM[i].innerHTML > 0)
+      itemAmountDOM[i].innerHTML = Number(itemAmountDOM[i].innerHTML) - 1;
+  }
+}
