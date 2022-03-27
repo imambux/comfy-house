@@ -1,4 +1,7 @@
 const productsCenterDOM = document.querySelector(".products-center");
+let cartDOM = document.querySelector(".cart-btn");
+const cart = document.querySelector(".cart");
+const cartOverlay = document.querySelector(".cart-overlay");
 
 (async function () {
   let response = await fetch("products.json");
@@ -26,3 +29,9 @@ const productsCenterDOM = document.querySelector(".products-center");
   }
   productsCenterDOM.innerHTML = results;
 })();
+
+cartDOM.addEventListener("click", showCart);
+function showCart() {
+  cartDOM = cart.style.transform = "translateX(0%)";
+  cartDOM = cartOverlay.style.visibility = "visible";
+}
