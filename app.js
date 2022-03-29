@@ -30,8 +30,8 @@ const cartOverlay = document.querySelector(".cart-overlay");
   productsCenterDOM.innerHTML = results;
 })();
 
-cartBtn.addEventListener("click", showCart);
-function showCart() {
+cartBtn.addEventListener("click", showCartHandler);
+function showCartHandler() {
   cart.style.transform = "translateX(0%)";
   cartOverlay.style.visibility = "visible";
 }
