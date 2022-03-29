@@ -1,5 +1,5 @@
 const productsCenterDOM = document.querySelector(".products-center");
-let cartDOM = document.querySelector(".cart-btn");
+const cartDOM = document.querySelector(".cart-btn");
 const cart = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
 
@@ -32,6 +32,6 @@ const cartOverlay = document.querySelector(".cart-overlay");
 
 cartDOM.addEventListener("click", showCart);
 function showCart() {
-  cartDOM = cart.style.transform = "translateX(0%)";
-  cartDOM = cartOverlay.style.visibility = "visible";
+  cart.style.transform = "translateX(0%)";
+  cartOverlay.style.visibility = "visible";
 }
