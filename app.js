@@ -2,6 +2,7 @@ const productsCenterDOM = document.querySelector(".products-center");
 const cartBtn = document.querySelector(".cart-btn");
 const cart = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
+const closeCartIcon = document.querySelector(".close-cart");
 
 (async function () {
   let response = await fetch("products.json");
@@ -34,4 +35,10 @@ cartBtn.addEventListener("click", showCartHandler);
 function showCartHandler() {
   cart.style.transform = "translateX(0%)";
   cartOverlay.style.visibility = "visible";
+}
+
+closeCartIcon.addEventListener("click", hideCartHandler);
+function hideCartHandler() {
+  cart.style.transform = "translateX(100%)";
+  cartOverlay.style.visibility = "hidden";
 }
