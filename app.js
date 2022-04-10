@@ -53,3 +53,12 @@ function allChevronUpBtnsHandler(event) {
   event.target.nextElementSibling.innerHTML =
     parseInt(event.target.nextElementSibling.innerHTML) + 1;
 }
+
+for (let i = 0; i < allChevronDownBtns.length; i++)
+  allChevronDownBtns[i].addEventListener("click", allChevronDownBtnsHandler);
+
+function allChevronDownBtnsHandler(event) {
+  if (event.target.previousElementSibling.innerHTML > 0)
+    event.target.previousElementSibling.innerHTML =
+      parseInt(event.target.previousElementSibling.innerHTML) - 1;
+}
