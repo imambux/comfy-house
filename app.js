@@ -33,12 +33,11 @@ let allitemAmounts = document.querySelectorAll(".item-amount");
   const allAddToCartBtns = document.querySelectorAll(".bag-btn");
   allAddToCartBtns.forEach((addToCartBtn) => {
     addToCartBtn.addEventListener("click", (event) => {
-      const matchedProduct = allProducts.find((product) =>
-        event.target.previousElementSibling.src.includes(
-          product.url.substring(1)
-        )
+      const product = getMatchedProduct(
+        allProducts,
+        event.target.previousElementSibling
       );
-      addProductToCart(matchedProduct);
+      addProductToCart(product);
       showCartHandler();
     });
   });
@@ -79,6 +78,12 @@ function allChevronDownBtnsHandler(event) {
   if (event.target.previousElementSibling.innerHTML > 1)
     event.target.previousElementSibling.innerHTML =
       parseInt(event.target.previousElementSibling.innerHTML) - 1;
+}
+
+function getMatchedProduct(allProducts, productToBeAdded) {
+  return allProducts.find((product) =>
+    productToBeAdded.src.includes(product.url.substring(1))
+  );
 }
 
 function addProductToCart(product) {
