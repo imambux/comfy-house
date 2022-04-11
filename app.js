@@ -46,17 +46,17 @@ function hideCartHandler() {
   cartOverlay.style.visibility = "hidden";
 }
 
-for (let i = 0; i < allChevronUpBtns.length; i++)
-  allChevronUpBtns[i].addEventListener("click", allChevronUpBtnsHandler);
-
+allChevronUpBtns.forEach((btn) => {
+  btn.addEventListener("click", allChevronUpBtnsHandler);
+});
 function allChevronUpBtnsHandler(event) {
   event.target.nextElementSibling.innerHTML =
     parseInt(event.target.nextElementSibling.innerHTML) + 1;
 }
 
-for (let i = 0; i < allChevronDownBtns.length; i++)
-  allChevronDownBtns[i].addEventListener("click", allChevronDownBtnsHandler);
-
+allChevronDownBtns.forEach((btn) => {
+  btn.addEventListener("click", allChevronDownBtnsHandler);
+});
 function allChevronDownBtnsHandler(event) {
   if (event.target.previousElementSibling.innerHTML > 0)
     event.target.previousElementSibling.innerHTML =
