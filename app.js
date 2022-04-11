@@ -58,7 +58,7 @@ allChevronDownBtns.forEach((btn) => {
   btn.addEventListener("click", allChevronDownBtnsHandler);
 });
 function allChevronDownBtnsHandler(event) {
-  if (event.target.previousElementSibling.innerHTML > 0)
+  if (event.target.previousElementSibling.innerHTML > 1)
     event.target.previousElementSibling.innerHTML =
       parseInt(event.target.previousElementSibling.innerHTML) - 1;
 }
