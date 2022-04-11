@@ -23,7 +23,7 @@ let allitemAmounts = document.querySelectorAll(".item-amount");
               />
               <button class="bag-btn" data-id="1">
                   <i class="fas fa-shopping-cart"></i>
-                  add to bag
+                  add to cart
               </button>
           </div>
           <h3>${data[index].name}</h3>
