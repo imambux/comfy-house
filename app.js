@@ -48,9 +48,6 @@ let allitemAmounts = document.querySelectorAll(".item-amount");
 
   const closeCartIcon = document.querySelector(".close-cart");
   closeCartIcon.addEventListener("click", hideCartHandler);
-
-  let cartTotal = document.querySelector(".cart-total");
-  updateCartTotal(cartTotal);
 })();
 
 function showCartHandler() {
