@@ -2,7 +2,6 @@ const productsCenterDOM = document.querySelector(".products-center");
 const cart = document.querySelector(".cart");
 const cartContainer = document.querySelector(".cart-content");
 const cartOverlay = document.querySelector(".cart-overlay");
-let allitemAmounts = document.querySelectorAll(".item-amount");
 
 (async function () {
   let response = await fetch("products.json");
@@ -68,22 +67,14 @@ function showCartHandler() {
 function updateCartTotal() {
   let cartItems = document.querySelectorAll(".cart-item");
   let cartTotal = document.querySelector(".cart-total");
-  let itemTotal;
-  let allItemsTotalArray = [];
-
+  let allCartItemsTotal = 0;
   for (let i = 0; i < cartItems.length; i++) {
     const itemPrice = cartItems[i].querySelector("h5").innerHTML.slice(1);
     const itemQuantity = cartItems[i].querySelector(".item-amount").innerHTML;
-    itemTotal = itemPrice * itemQuantity;
-
-    allItemsTotalArray.push(itemTotal);
-    const initialValue = 0;
-    const allItemsTotal = allItemsTotalArray.reduce(
-      (previousValue, currentValue) => previousValue + currentValue,
-      initialValue
-    );
-    cartTotal.innerHTML = allItemsTotal;
+    const itemTotal = itemPrice * itemQuantity;
+    allCartItemsTotal += itemTotal;
   }
+  cartTotal.innerHTML = allCartItemsTotal;
 }
 
 function hideCartHandler() {
