@@ -2,7 +2,6 @@ const productsCenterDOM = document.querySelector(".products-center");
 const cart = document.querySelector(".cart");
 const cartContainer = document.querySelector(".cart-content");
 const cartOverlay = document.querySelector(".cart-overlay");
-let allitemAmounts = document.querySelectorAll(".item-amount");
 
 (async function () {
   let response = await fetch("products.json");
@@ -39,6 +38,7 @@ let allitemAmounts = document.querySelectorAll(".item-amount");
       );
       addProductToCart(product);
       showCartHandler();
+      updateCartTotal();
     });
   });
 
@@ -64,6 +64,19 @@ function showCartHandler() {
   });
 }
 
+function updateCartTotal() {
+  let cartItems = document.querySelectorAll(".cart-item");
+  let cartTotal = document.querySelector(".cart-total");
+  let allCartItemsTotal = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    const itemPrice = cartItems[i].querySelector("h5").innerHTML.slice(1);
+    const itemQuantity = cartItems[i].querySelector(".item-amount").innerHTML;
+    const itemTotal = itemPrice * itemQuantity;
+    allCartItemsTotal += itemTotal;
+  }
+  cartTotal.innerHTML = allCartItemsTotal;
+}
+
 function hideCartHandler() {
   cart.style.transform = "translateX(100%)";
   cartOverlay.style.visibility = "hidden";
@@ -72,12 +85,14 @@ function hideCartHandler() {
 function allChevronUpBtnsHandler(event) {
   event.target.nextElementSibling.innerHTML =
     parseInt(event.target.nextElementSibling.innerHTML) + 1;
+  updateCartTotal();
 }
 
 function allChevronDownBtnsHandler(event) {
   if (event.target.previousElementSibling.innerHTML > 1)
     event.target.previousElementSibling.innerHTML =
       parseInt(event.target.previousElementSibling.innerHTML) - 1;
+  updateCartTotal();
 }
 
 function getMatchedProduct(allProducts, productToBeAdded) {
