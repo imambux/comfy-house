@@ -47,6 +47,7 @@ const cartOverlay = document.querySelector(".cart-overlay");
 
   const closeCartIcon = document.querySelector(".close-cart");
   closeCartIcon.addEventListener("click", hideCartHandler);
+  cartOverlay.addEventListener("click", hideCartHandler);
 })();
 
 function showCartHandler() {
