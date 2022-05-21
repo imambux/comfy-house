@@ -78,9 +78,14 @@ function updateCartTotal() {
   cartTotal.innerHTML = allCartItemsTotal;
 }
 
-function hideCartHandler() {
-  cart.style.transform = "translateX(100%)";
-  cartOverlay.style.visibility = "hidden";
+function hideCartHandler(event) {
+  if (
+    event.target.className.includes("cart-overlay") ||
+    event.target.className.includes("fa-window-close")
+  ) {
+    cart.style.transform = "translateX(100%)";
+    cartOverlay.style.visibility = "hidden";
+  }
 }
 
 function allChevronUpBtnsHandler(event) {
