@@ -1,40 +1,48 @@
 [
   {
+    "id": 1,
     "url": "./images/product-1.jpeg",
     "price": 12,
     "name": "Queen Bed"
   },
   {
+    "id": 2,
     "url": "./images/product-2.jpeg",
     "price": 20,
     "name": "Cosy Sofa"
   },
   {
+    "id": 3,
     "url": "./images/product-3.jpeg",
     "price": 25,
     "name": "Cosy Sofa"
   },
   {
+    "id": 4,
     "url": "./images/product-4.jpeg",
     "price": 50,
     "name": "Solo Chair"
   },
   {
+    "id": 5,
     "url": "./images/product-5.jpeg",
     "price": 100,
     "name": "Queen Bed"
   },
   {
+    "id": 6,
     "url": "./images/product-6.jpeg",
     "price": 75,
     "name": "Sofa Set"
   },
   {
+    "id": 7,
     "url": "./images/product-7.jpeg",
     "price": 30,
     "name": "Kitchen Table"
   },
   {
+    "id": 8,
     "url": "./images/product-8.jpeg",
     "price": 10,
     "name": "Bed"

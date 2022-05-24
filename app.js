@@ -39,6 +39,8 @@ const cartOverlay = document.querySelector(".cart-overlay");
       addProductToCart(product);
       showCartHandler();
       updateCartTotal();
+
+      addToCartBtn.disabled = true;
     });
   });
 
@@ -109,7 +111,7 @@ function getMatchedProduct(allProducts, productToBeAdded) {
 
 function addProductToCart(product) {
   let result = cartContainer.innerHTML;
-  result += `<div class="cart-item">
+  result += `<div class="cart-item" data-id="${product.id}">
             <img src="${product.url}" alt="${product.name}" />
             <div>
               <h4>${product.name}</h4>
