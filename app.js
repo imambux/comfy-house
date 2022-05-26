@@ -2,6 +2,8 @@ const productsCenterDOM = document.querySelector(".products-center");
 const cart = document.querySelector(".cart");
 const cartContainer = document.querySelector(".cart-content");
 const cartOverlay = document.querySelector(".cart-overlay");
+const clearCart = document.querySelector(".clear-cart");
+let cartTotal = document.querySelector(".cart-total");
 
 (async function () {
   let response = await fetch("products.json");
@@ -69,7 +71,6 @@ function showCartHandler() {
 
 function updateCartTotal() {
   let cartItems = document.querySelectorAll(".cart-item");
-  let cartTotal = document.querySelector(".cart-total");
   let allCartItemsTotal = 0;
   for (let i = 0; i < cartItems.length; i++) {
     const itemPrice = cartItems[i].querySelector("h5").innerHTML.slice(1);
@@ -78,6 +79,13 @@ function updateCartTotal() {
     allCartItemsTotal += itemTotal;
   }
   cartTotal.innerHTML = allCartItemsTotal;
+}
+
+clearCart.addEventListener("click", clearCartHandler);
+function clearCartHandler() {
+  let cartContent = document.querySelector(".cart-content");
+  cartContent.textContent = "";
+  cartTotal.innerHTML = 0;
 }
 
 function hideCartHandler(event) {
